@@ -70,11 +70,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\OpenCv\opencv\build\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\OpenCv\opencv\build\include;D:\OpenCv\opencv\build\include\opencv;D:\OpenCv\opencv\build\include\opencv2;$(IncludePath)</IncludePath>
     <LibraryPath>D:\OpenCv\opencv\build\x64\vc15\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>D:\OpenCv\opencv\build\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\OpenCv\opencv\build\include;D:\OpenCv\opencv\build\include\opencv;D:\OpenCv\opencv\build\include\opencv2;$(IncludePath)</IncludePath>
     <LibraryPath>D:\OpenCv\opencv\build\x64\vc15\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -94,6 +94,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\OpenCv\opencv\build\include;D:\OpenCv\opencv\build\include\opencv;D:\OpenCv\opencv\build\include\opencv2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,6 +124,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\OpenCv\opencv\build\include;D:\OpenCv\opencv\build\include\opencv;D:\OpenCv\opencv\build\include\opencv2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,6 +134,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Unit.h" />
+    <ClInclude Include="Unit3.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="bilinear interpolation.cpp" />
+    <ClCompile Include="Gradient Descent.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Unit1.cpp" />
+    <ClCompile Include="Unit2.cpp" />
+    <ClCompile Include="Unit3.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
