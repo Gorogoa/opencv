@@ -134,6 +134,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Histogram.h" />
     <ClInclude Include="Unit.h" />
     <ClInclude Include="Unit3.h" />
   </ItemGroup>
@@ -144,6 +145,7 @@
     <ClCompile Include="Unit1.cpp" />
     <ClCompile Include="Unit2.cpp" />
     <ClCompile Include="Unit3.cpp" />
+    <ClCompile Include="Unit4.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -16,7 +16,7 @@ int main()
 	cv::imshow("Zoom", outImage);
 	*/
 	//GradientDescent();
-	Unit3();
+	Unit4();
 
 	cv::waitKey(0);
 	return 0;
