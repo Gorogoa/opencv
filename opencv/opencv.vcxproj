@@ -134,7 +134,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Histogram.h" />
+    <ClInclude Include="Unit4.h" />
     <ClInclude Include="Unit.h" />
     <ClInclude Include="Unit3.h" />
   </ItemGroup>

@@ -21,7 +21,7 @@
     <ClInclude Include="Unit.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Histogram.h">
+    <ClInclude Include="Unit4.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
