@@ -40,12 +40,5 @@ cv::Mat BilinearInterpolation(cv::Mat InPutImage,double scale_X,double scale_Y)
 		return  OutputImage;
 	}
 	else
-	{
 		return  InPutImage;
-	}
-
-
-
-	
-
 }

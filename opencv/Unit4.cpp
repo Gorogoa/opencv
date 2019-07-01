@@ -119,6 +119,14 @@ cv::Mat Histogram::colorReduce(const cv::Mat& image, int div)
 }
 //----------------------------------------------------//
 
+//----------------------set HistSize------------------//
+void Histogram::setSize(const int& size)
+{
+	histSize[0] = size;
+}
+//----------------------------------------------------//
+
+
 ///////////////////////////////////////////////////////////
 //----------------color Histogram------------------------//
 ///////////////////////////////////////////////////////////
@@ -198,6 +206,23 @@ cv::Mat ContentFind::find(const cv::Mat& image)
 		cv::threshold(result, result, 255.0 * threshold, 255.0, cv::THRESH_BINARY);							//超过阈值设为255
 	return result;
 }
+
+//------------------convert to binaryplanes-----------//
+void convert2Binaryplanes(const cv::Mat& image, cv::Mat& output, int nPlanes)
+{
+	int n = 8 - static_cast<int>(log(static_cast<double>(nPlanes)) / log(2.0));
+	uchar mask = 0xFF << n;
+
+	vector<cv::Mat> planes;
+	cv::Mat reduced = image & mask;												//清零低位
+	for (int i = 0; i < nPlanes; ++i)
+	{
+		planes.push_back((reduced == (i << n)) & 0x01);							//将每个==i<<shift的像素置1
+
+	}
+	cv::merge(planes, output);		
+}
+//----------------------------------------------------// 
 int Unit4()
 {
 //------------------------获取直方图------------------//
@@ -240,24 +265,94 @@ int Unit4()
 //----------------------------------------------------//
 
 //----------------Content Find------------------------//
-	cv::Mat image = cv::imread("back.jpg", CV_LOAD_IMAGE_COLOR);
-	if (image.empty())
-		return -1;
-	cv::Mat imageROI = image(cv::Rect(0, 0, 45, 45));
-	colorHistogram h;
-	cv::SparseMat colHist;
-	h.setSize(128);							//128*128*128
-	colHist = h.getColorHistogram(imageROI);
-
-	ContentFind finder;
-	finder.setThreshold(0.05f);
-	finder.setHistogram(colHist);
-	cv::Mat result = finder.find(image);
-	cv::rectangle(result, cv::Rect(0, 0, 85, 85), cv::Scalar(0));
-	cv::namedWindow("Content Find");
-    cv::imshow("Content Find", result);
-
+	//cv::Mat image = cv::imread("back.jpg", CV_LOAD_IMAGE_COLOR);
+	//if (image.empty())
+	//	return -1;
+	//cv::Mat imageROI = image(cv::Rect(0, 120, 80, 80));
+	//cv::imshow("imageROI", imageROI);
+	//colorHistogram h;
+	//cv::SparseMat colHist;
+	//h.setSize(256);							//128*128*128
+	//colHist = h.getColorHistogram(imageROI);
+	//ContentFind finder;
+	//finder.setThreshold(0.05f);
+	//finder.setHistogram(colHist);
+	//cv::Mat result = finder.find(image);
+	//cv::rectangle(result, cv::Rect(0, 120, 80, 80), cv::Scalar(0));
+	//cv::namedWindow("Content Find");
+	//cv::imshow("Content Find", result);
 //----------------------------------------------------//
 
+//----------------AdaptiveThreshold-------------------//
+	//cv::Mat image = cv::imread("back.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+	//if (image.empty())
+	//	return -1;
+	//cv::Mat integralImage;
+	//cv::integral(image, integralImage, CV_32S);							//积分图像
+	//int numRow,numCol;
+	//numRow = image.rows;
+	//numCol = image.cols*image.channels();
+	//int blockSize = 21;							//邻域大小
+	//int threshold = 6;
+	//int halfSize = blockSize / 2;
+	////for (int j = halfSize; j < numRow-halfSize-1; ++j)
+	////{
+	////	uchar* data = image.ptr<uchar>(j);
+	////	int* integralLine1 = integralImage.ptr<int>(j - halfSize);
+	////	int* integralLine2 = integralImage.ptr<int>(j + halfSize);
+	////	for (int i = halfSize; i < numCol - halfSize - 1; ++i)
+	////	{
+	////		int sum = (integralLine2[i + halfSize]							//右下角
+	////			- integralLine2[i - halfSize]								//左下角
+	////			- integralLine1[i + halfSize]								//右上角
+	////			+ integralLine1[i - halfSize])								//左上角
+	////			/(blockSize*blockSize);										//取均值	
+	////		if (data[i] < (sum - threshold))
+	////			data[i] = 0;
+	////		else
+	////			data[i] = 255;
+	////	}
+	////}
+	////adaptiveThreshold函数实现
+	//cv::Mat result;
+	//cv::adaptiveThreshold(image,							//
+	//					result,								//输出图像
+	//					255.0,								//输出最大值
+	//					cv::ADAPTIVE_THRESH_GAUSSIAN_C,		//
+	//					CV_THRESH_BINARY,					//大于阈值置255
+	//					blockSize,							//块大小
+	//					threshold);
+	//cv::namedWindow("AdaptiveThreshold");
+	//cv::imshow("AdaptiveThreshold", result);
+//----------------------------------------------------//
+
+//------------------convert to binaryplanes-----------//
+	//cv::Mat image = cv::imread("back.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+	//if (image.empty())
+	//	return -1;
+	//cv::Mat result;
+	//cv::Mat imageROI(image, cv::Rect(745, 245, 120, 120));
+	//Histogram h;
+	//h.setSize(16);
+	//cv::Mat refHist = h.getHistogram(imageROI);							//获取目标直方图
+	//cv::Mat planes;
+	//convert2Binaryplanes(image, planes, 2);
+	//IntegralImage<float, 16> integralHist(planes);
+	////遍历
+	//double minError = 0.0;
+	//cv::Mat histogram; 
+	//for (int i = 200; i < 1500; i = i+10)
+	//{
+	//	for (int j = 100; j < 700; j = j+10)
+	//	{
+	//		 histogram = integralHist(i, j, 60, 60);
+	//		 double distance = cv::compareHist(refHist, histogram, CV_COMP_INTERSECT);
+	//		 if (distance < minError)
+	//			 cv::rectangle(image, cv::Rect(i, j, 60, 60), 0);
+	//	}
+	//}
+
+//----------------------------------------------------// 
+	
 	return 0;
 }

@@ -134,18 +134,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="LineFinder.h" />
+    <ClInclude Include="MSERFeatures.h" />
     <ClInclude Include="Unit4.h" />
     <ClInclude Include="Unit.h" />
     <ClInclude Include="Unit3.h" />
+    <ClInclude Include="Unit5.h" />
+    <ClInclude Include="Unit6.h" />
+    <ClInclude Include="Unit7.h" />
+    <ClInclude Include="Unit8.h" />
+    <ClInclude Include="Unit9.h" />
+    <ClInclude Include="WaterShedSegmenter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bilinear interpolation.cpp" />
     <ClCompile Include="Gradient Descent.cpp" />
+    <ClCompile Include="LineFinder.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MSERFeatures.cpp" />
     <ClCompile Include="Unit1.cpp" />
     <ClCompile Include="Unit2.cpp" />
     <ClCompile Include="Unit3.cpp" />
     <ClCompile Include="Unit4.cpp" />
+    <ClCompile Include="Unit5.cpp" />
+    <ClCompile Include="Unit6.cpp" />
+    <ClCompile Include="Unit7.cpp" />
+    <ClCompile Include="Unit8.cpp" />
+    <ClCompile Include="Unit9.cpp" />
+    <ClCompile Include="WaterShedSegmenter.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

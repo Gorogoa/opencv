@@ -24,6 +24,30 @@
     <ClInclude Include="Unit4.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Unit5.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="WaterShedSegmenter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MSERFeatures.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Unit6.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Unit7.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LineFinder.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Unit8.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Unit9.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -45,6 +69,30 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Unit4.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Unit5.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="WaterShedSegmenter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MSERFeatures.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Unit6.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Unit7.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LineFinder.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Unit8.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Unit9.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

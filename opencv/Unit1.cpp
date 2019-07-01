@@ -77,7 +77,7 @@ int Unit1()
 
 //--------------------Iplimage------------------------//
 	/*
-	cv::Ptr<IplImage> iplImage = cvLoadImage("sop.jpg");            //C语言接口装载函数    
+	cv::Ptr<IplImage> iplImage = cvLoadImage("sop.jpg");          //C语言接口装载函数    
 	IplImage* iplImage = cvLoadImage("sop.jpg");                  //需要释放iplImage结构指向的内存
 	cv::Mat iamge(iplImage);                                      //转换为cv::Mat类型
 	cvReleaseImage(&iplImage);     

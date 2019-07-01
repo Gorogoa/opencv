@@ -123,9 +123,6 @@ int  Unit3()
 	cv::namedWindow("SkinDetect");
 	cv::imshow("SkinDetect", result);
 
-
-
-
 	cv::waitKey(0);
 	return 0;
 }
